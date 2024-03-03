@@ -46,3 +46,16 @@ class BookManager:
                 print("\n✅ Book removed successfully ✅")
                 return
         print("\n⛔ Book not found ⛔")
+
+# Getting user input for a new book
+def get_user_input():
+    title = input("📝 Enter book's title: ")
+    author = input("📝 Enter book's author: ")
+    while True:
+        try:
+            pub_year = int(input("📝 Enter book's publication year: "))
+            break
+        except ValueError:
+            print("❌ Invalid input. Please enter a valid year ❌")
+
+    return title, author, pub_year
