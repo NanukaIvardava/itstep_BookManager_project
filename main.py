@@ -59,3 +59,44 @@ def get_user_input():
             print("❌ Invalid input. Please enter a valid year ❌")
 
     return title, author, pub_year
+# Main function for the book manager
+def main():
+    # Creating an instance of BookManager class.
+    book_manager = BookManager()
+
+    # Running while loop until user exits the program
+    while True:
+        print("\n📚 Book Manager:")
+        print("-- Add a new book (+)")
+        print("-- Remove a book (-)")
+        print("-- View all books (all)")
+        print("-- Search by title (?)")
+        print("-- Exit the program (exit)")
+
+        user_input = input("📝 How may I help you (+, -, all, ?, exit): ").strip()
+
+        # Running different methods based on user input
+        if user_input == '+':
+            title, author, pub_year = get_user_input()
+            book_manager.add_book(title, author, pub_year)
+
+        elif user_input == '-':
+            title_to_remove = input("📝 Enter the title of the book to remove: ")
+            book_manager.remove_book(title_to_remove)
+
+        elif user_input == 'all':
+            book_manager.all_books()
+
+        elif user_input == '?':
+            title_to_search = input("📝 Enter the book's title: ")
+            book_manager.search_book(title_to_search)
+
+        elif user_input == 'exit':
+            print("💤 Exiting the program...")
+            break
+
+        else:
+            print("❌ Invalid input. Please enter a valid option ❌")
+
+# Running the book manager
+main()
